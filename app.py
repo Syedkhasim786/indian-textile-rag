@@ -19,7 +19,8 @@ def search(query):
     distances, indices = index.search(np.array(query_embedding), k=3)
     return [texts[i] for i in indices[0]]
 
-st.title("🇮🇳 Indian Textile AI Assistant")
+st.title("Textile AI Assistant")
+query = st.text_input("Ask anything about textiles...")
 
 query = st.text_input("Ask your question:")
 
