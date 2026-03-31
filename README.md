@@ -1,4 +1,4 @@
-# 🇮🇳 Indian Textile RAG AI Assistant
+# Indian Textile RAG AI Assistant
 
 This is a Generative AI project using Retrieval-Augmented Generation (RAG).
 
