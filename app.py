@@ -20,9 +20,9 @@ def search(query):
     return [texts[i] for i in indices[0]]
 
 st.title("Textile AI Assistant")
-query = st.text_input("Ask anything about textiles...")
 
-query = st.text_input("Ask your question:")
+# ✅ Only ONE input box (fixed)
+query = st.text_input("Ask anything about textiles...")
 
 if query:
     results = search(query)
