@@ -21,10 +21,29 @@ def search(query):
 
 st.title("Textile AI Assistant")
 
-# ✅ Only ONE input box (fixed)
-query = st.text_input("Ask anything about textiles...")
+# Store chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display previous messages
+for msg in st.session_state.messages:
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
+
+# ChatGPT-style input
+query = st.chat_input("Ask anything about textiles...")
 
 if query:
+    # Show user message
+    st.session_state.messages.append({"role": "user", "content": query})
+    with st.chat_message("user"):
+        st.write(query)
+
+    # Get response
     results = search(query)
     context = " ".join(results)
-    st.write("🧵 Answer:", context)
+
+    # Show bot response
+    st.session_state.messages.append({"role": "assistant", "content": context})
+    with st.chat_message("assistant"):
+        st.write(context)
